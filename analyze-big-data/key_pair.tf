@@ -1,0 +1,4 @@
+resource "aws_key_pair" "emr_key_pair" {
+	key_name = "tf-intetics-big-data"
+	public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAlMXKeSaLm5tF43rwOJzlI8a1TwAUPWtcY5NgZzLBpbr6WdHWwTPD2VE5GX1goaBl8oWOtOHNB2X1k/SzgQRuWWINrAlhXjEV4nnU3Z2wZZzhfkK9guK0Jxzcp8NWydi3SIWr8Odh7UuwUSMIbcjipKLp0sq4S1P3IPrY+Qes7Gq9l8RxfdgORL94VNxLuJ0BoLxouwUqk+vcx5EdHoCZjOiaAz50v2rIe3FvHWo3LM8qAB3NTJwOdaiws34ZOW6ZJdVv9u6pbTXYDnJmWW3eB0/tZEy5Vl4nrrohxeo569VN9mgekctTTg6qYT7vjivNQk+dxkvurrZhy79d8PqMpw== rsa-key-20180822"
+}
