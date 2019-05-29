@@ -17,9 +17,11 @@ resource "aws_emr_cluster" "emr_cluster" {
 	}
 
 	master_instance_group {
+		name = "EMR Master EC2"
 		instance_type = "m4.large"
 	}
 	core_instance_group {
+		name = "EMR Core EC2"
 		instance_type = "m4.large"
 		instance_count = 2
 	}
