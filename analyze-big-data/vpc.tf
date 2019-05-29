@@ -1,7 +1,7 @@
 resource "aws_subnet" "emr_subnet" {
 	vpc_id = "${aws_vpc.emr_vpc.id}"
 	cidr_block = "168.31.0.0/20"
-	tags {
+	tags = {
 		Name = "EMR Subnet / Terraform"
 	}
 }
@@ -9,7 +9,7 @@ resource "aws_subnet" "emr_subnet" {
 resource "aws_vpc" "emr_vpc" {
 	cidr_block = "168.31.0.0/16"
 	enable_dns_hostnames = true
-	tags {
+	tags = {
 		Name = "EMR VPC / Terraform"
 	}
 }
@@ -20,14 +20,14 @@ resource "aws_route_table" "emr_rt" {
 		cidr_block = "0.0.0.0/0"
 		gateway_id = "${aws_internet_gateway.emr_gw.id}"
 	}
-	tags {
+	tags = {
 		Name = "EMR RT / Terraform"
 	}
 }
 
 resource "aws_internet_gateway" "emr_gw" {
 	vpc_id = "${aws_vpc.emr_vpc.id}"
-	tags {
+	tags = {
 		Name = "EMR IG / Terraform"
 	}
 }
@@ -42,7 +42,7 @@ resource "aws_security_group" "emr_allow_all" {
 	description = "Allow all inbound traffic / Terraform"
 	vpc_id = "${aws_vpc.emr_vpc.id}"
 	depends_on = ["aws_subnet.emr_subnet"]
-	tags {
+	tags = {
 		Name = "EMR SG / Terraform"
 	}
 	ingress {

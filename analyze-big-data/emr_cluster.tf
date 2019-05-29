@@ -4,7 +4,7 @@ resource "aws_emr_cluster" "emr_cluster" {
 	applications = ["Hadoop", "Hive", "Mahout", "Pig", "Hue", "Tez", "Ganglia"]
 	service_role = "${aws_iam_role.EMR_DefaultRole.id}"
 	log_uri = "s3://${aws_s3_bucket.s3_bucket.bucket}/logs/"
-	tags {
+	tags = {
 		name = "EMR cluster created via Terraform"
 	}
 
@@ -16,15 +16,12 @@ resource "aws_emr_cluster" "emr_cluster" {
 		emr_managed_slave_security_group  = "${aws_security_group.emr_allow_all.id}"
 	}
 
-	instance_group {
-		instance_role = "MASTER"
+	master_instance_group {
 		instance_type = "m4.large"
-		instance_count = "1"
 	}
-	instance_group {
-		instance_role = "CORE"
+	core_instance_group {
 		instance_type = "m4.large"
-		instance_count = "2"
+		instance_count = 2
 	}
 
 	step {
